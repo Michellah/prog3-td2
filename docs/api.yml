@@ -1,0 +1,54 @@
+openapi: 3.0.0
+servers:
+  - url: " "
+info:
+  version: "latest"
+  title: PROG3 - TD2
+paths:
+  /matches:
+    get:
+      tags:
+        - Matches
+      summary: get all matches
+      operationId: getMatches
+      responses:
+        '200':
+          description: List of all matches
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref:
+  /teams:
+    get:
+      tags:
+        - Teams
+      summary: get all teams
+      operationId: getTeams
+      responses:
+        '200':
+          description: List of all teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref:
+components:
+  schemas:
+    createPlayer:
+      type: object
+        properties:
+          id:
+            type: integer
+        allOf:
+          - $ref: '#/components/schemas/UpdatePlayer'
+    updatePlayer:
+      type:
+        properties:
+          name:
+            type: string
+          number:
+            type: integer
+
